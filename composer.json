@@ -1,0 +1,50 @@
+{
+  "name": "kabbouchi/laravel-log-viewer",
+  "description": "",
+  "keywords": [
+    "laravel",
+    "log",
+    "logs",
+    "viewer"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Georges KABBOUCHI",
+      "email": "georges.kabbouchi@gmail.com"
+    }
+  ],
+  "require": {
+    "illuminate/contracts": "~5.5",
+    "illuminate/queue": "~5.5",
+    "illuminate/support": "~5.5"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~6.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "KABBOUCHI\\LogViewer\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "KABBOUCHI\\LogViewer\\Tests\\": "tests/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "KABBOUCHI\\LogViewer\\LogViewerServiceProvider"
+      ],
+      "aliases": {
+        "LogViewer": "KABBOUCHI\\LogViewer\\LogViewer"
+      }
+    }
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "prefer-stable": true,
+  "minimum-stability": "dev"
+}
