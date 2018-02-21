@@ -1,0 +1,18 @@
+@tailwind preflight;
+
+@tailwind utilities;
+
+a {
+  @apply .text-grey-darkest;
+  text-decoration: none;
+
+  &.link:hover {
+    text-decoration: underline;
+  }
+}
+.table-collapse {
+  border-collapse: collapse;
+}
+[v-cloak] .v-cloak-hidden {
+  display: none;
+}

@@ -1,8 +1,9 @@
 {
-  "name": "kabbouchi/laravel-log-viewer",
+  "name": "kabbouchi/laravel-ward",
   "description": "",
   "keywords": [
     "laravel",
+    "ward",
     "log",
     "logs",
     "viewer"

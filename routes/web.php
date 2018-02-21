@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('api')->group(function () {
-
+    Route::get('/logs', 'Api\LogsController@index');
 });
 
-Route::get('/{view?}', 'LogViewerController@index')->where('view', '(.*)')->name('log-viewer.index');
+Route::get('/{view?}', 'WardController@index')->where('view', '(.*)')->name('ward.index');

@@ -1,5 +1,6 @@
 const mix = require('laravel-mix');
 const webpack = require('webpack');
+const tailwindcss = require('tailwindcss');
 
 /*
  |--------------------------------------------------------------------------
@@ -18,13 +19,17 @@ mix
             compress: {
                 drop_console: false,
             }
-        }
+        },
+        processCssUrls: false,
+        postCss: [
+            tailwindcss('./tailwind.js'),
+        ]
     })
     .setPublicPath('public')
     .js('resources/assets/js/app.js', 'public/js')
     .sass('resources/assets/sass/app.scss', 'public/css')
     .sourceMaps()
-    .copy('public', '../../../public/vendor/log-viewer')
+    .copy('public', '../../../public/vendor/ward')
     .version();
 
 

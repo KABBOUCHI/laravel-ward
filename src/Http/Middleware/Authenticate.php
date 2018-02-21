@@ -1,8 +1,8 @@
 <?php
 
-namespace KABBOUCHI\LogViewer\Http\Middleware;
+namespace KABBOUCHI\Ward\Http\Middleware;
 
-use KABBOUCHI\LogViewer\LogViewer;
+use KABBOUCHI\Ward\Ward;
 
 class Authenticate
 {
@@ -15,6 +15,6 @@ class Authenticate
      */
     public function handle($request, $next)
     {
-        return LogViewer::check($request) ? $next($request) : abort(403);
+        return Ward::check($request) ? $next($request) : abort(403);
     }
 }

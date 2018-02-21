@@ -1,14 +1,14 @@
 <!doctype>
 <html>
 <head>
-    <title>LogViewer</title>
+    <title>Laravel Ward</title>
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="{{ mix('css/app.css', 'vendor/log-viewer') }}">
+    <link rel="stylesheet" type="text/css" href="{{ mix('css/app.css', 'vendor/ward') }}">
 </head>
 
-<body>
-<div id="root"></div>
+<body class="font-sans font-normal text-black leading-normal bg-blue-lightest">
+<div id="root" v-cloak></div>
 
-<script src="{{ mix('js/app.js', 'vendor/log-viewer') }}"></script>
+<script src="{{ mix('js/app.js', 'vendor/ward') }}"></script>
 </body>
 </html>

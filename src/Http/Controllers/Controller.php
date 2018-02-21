@@ -1,9 +1,9 @@
 <?php
 
-namespace KABBOUCHI\LogViewer\Http\Controllers;
+namespace KABBOUCHI\Ward\Http\Controllers;
 
 use Illuminate\Routing\Controller as BaseController;
-use KABBOUCHI\LogViewer\Http\Middleware\Authenticate;
+use KABBOUCHI\Ward\Http\Middleware\Authenticate;
 
 class Controller extends BaseController
 {

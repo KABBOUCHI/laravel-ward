@@ -1,8 +1,8 @@
 <?php
 
-namespace KABBOUCHI\LogViewer\Http\Controllers;
+namespace KABBOUCHI\Ward\Http\Controllers;
 
-class LogViewerController extends Controller
+class WardController extends Controller
 {
     /**
      * Single page application catch-all route.
@@ -11,6 +11,7 @@ class LogViewerController extends Controller
      */
     public function index()
     {
-        return view('log-viewer::app');
+        return view('ward::app');
     }
+
 }

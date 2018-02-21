@@ -1,11 +1,11 @@
 <?php
 
-namespace KABBOUCHI\LogViewer;
+namespace KABBOUCHI\Ward;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 
-class LogViewerServiceProvider extends ServiceProvider
+class WardServiceProvider extends ServiceProvider
 {
 
     /**
@@ -28,9 +28,9 @@ class LogViewerServiceProvider extends ServiceProvider
     protected function registerRoutes()
     {
         Route::group([
-            'prefix'     => config('log-viewer.uri', 'logs'),
-            'namespace'  => 'KABBOUCHI\LogViewer\Http\Controllers',
-            'middleware' => config('log-viewer.middleware', 'web'),
+            'prefix'     => config('ward.uri', 'ward'),
+            'namespace'  => 'KABBOUCHI\Ward\Http\Controllers',
+            'middleware' => config('ward.middleware', 'web'),
         ], function () {
             $this->loadRoutesFrom(__DIR__ . '/../routes/web.php');
         });
@@ -43,7 +43,7 @@ class LogViewerServiceProvider extends ServiceProvider
      */
     protected function registerResources()
     {
-        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'log-viewer');
+        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'ward');
     }
 
     /**
@@ -54,8 +54,8 @@ class LogViewerServiceProvider extends ServiceProvider
     public function defineAssetPublishing()
     {
         $this->publishes([
-            LOG_VIEWER_PATH . '/public' => public_path('vendor/log-viewer'),
-        ], 'log-viewer-assets');
+            WARD_PATH . '/public' => public_path('vendor/ward'),
+        ], 'ward-assets');
     }
 
     /**
@@ -65,8 +65,8 @@ class LogViewerServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        if (!defined('LOG_VIEWER_PATH')) {
-            define('LOG_VIEWER_PATH', realpath(__DIR__ . '/../'));
+        if (!defined('WARD_PATH')) {
+            define('WARD_PATH', realpath(__DIR__ . '/../'));
         }
 
         $this->configure();
@@ -81,7 +81,7 @@ class LogViewerServiceProvider extends ServiceProvider
     protected function configure()
     {
         $this->mergeConfigFrom(
-            __DIR__ . '/../config/log-viewer.php', 'log-viewer'
+            __DIR__ . '/../config/ward.php', 'ward'
         );
     }
 
@@ -94,8 +94,8 @@ class LogViewerServiceProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__ . '/../config/log-viewer.php' => config_path('log-viewer.php'),
-            ], 'log-viewer-config');
+                __DIR__ . '/../config/ward.php' => config_path('ward.php'),
+            ], 'ward-config');
         }
     }
 }
