@@ -25,21 +25,21 @@
   },
   "autoload": {
     "psr-4": {
-      "KABBOUCHI\\LogViewer\\": "src/"
+      "KABBOUCHI\\Ward\\": "src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "KABBOUCHI\\LogViewer\\Tests\\": "tests/"
+      "KABBOUCHI\\Ward\\Tests\\": "tests/"
     }
   },
   "extra": {
     "laravel": {
       "providers": [
-        "KABBOUCHI\\LogViewer\\LogViewerServiceProvider"
+        "KABBOUCHI\\Ward\\WardServiceProvider"
       ],
       "aliases": {
-        "LogViewer": "KABBOUCHI\\LogViewer\\LogViewer"
+        "Ward": "KABBOUCHI\\Ward\\Ward"
       }
     }
   },
