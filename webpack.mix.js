@@ -16,8 +16,10 @@ const tailwindcss = require('tailwindcss');
 mix
     .options({
         uglify: {
-            compress: {
-                drop_console: false,
+            uglifyOptions: {
+                compress: {
+                    drop_console: false
+                }
             }
         },
         processCssUrls: false,
