@@ -31,7 +31,9 @@ class LogsController extends Controller
 
     public function dailyLogFiles()
     {
-        return Ward::getFiles(true);
+        return collect(Ward::getFiles(true))->filter(function ($file) {
+            return str_start($file, "laravel");
+        });
     }
 
     /**
@@ -43,6 +45,7 @@ class LogsController extends Controller
     {
         return response()->download(Ward::pathToLogFile($log));
     }
+
     /**
      * @throws \Exception
      */
