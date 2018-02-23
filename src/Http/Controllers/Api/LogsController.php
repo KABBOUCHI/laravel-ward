@@ -10,7 +10,12 @@ class LogsController extends Controller
 {
     public function index()
     {
-        $logs = Ward::all();
+
+        Ward::setFile(base64_decode($file = request()->input('file', 'laravel.log')));
+
+        $logs = cache()->remember($file, 1, function () {
+            return Ward::all();
+        });
 
         $currentPage = LengthAwarePaginator::resolveCurrentPage();
 
@@ -23,4 +28,27 @@ class LogsController extends Controller
         return new LengthAwarePaginator($currentPageSearchResults, count($collection), $perPage);
 
     }
+
+    public function dailyLogFiles()
+    {
+        return Ward::getFiles(true);
+    }
+
+    /**
+     * @param $log
+     * @return \Symfony\Component\HttpFoundation\BinaryFileResponse
+     * @throws \Exception
+     */
+    public function show($log)
+    {
+        return response()->download(Ward::pathToLogFile($log));
+    }
+    /**
+     * @throws \Exception
+     */
+    public function delete()
+    {
+        app('files')->delete(Ward::pathToLogFile(request('file')));
+    }
+
 }

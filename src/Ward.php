@@ -17,6 +17,7 @@ class Ward
      * @var string file
      */
     private static $file;
+
     private static $levels_classes = [
         'debug'     => 'text-blue',
         'info'      => 'text-blue',
