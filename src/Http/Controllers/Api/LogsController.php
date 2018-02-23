@@ -32,7 +32,7 @@ class LogsController extends Controller
     public function dailyLogFiles()
     {
         return collect(Ward::getFiles(true))->filter(function ($file) {
-            return str_start($file, "laravel");
+            return strpos($file, "laravel") === 0;
         });
     }
 
