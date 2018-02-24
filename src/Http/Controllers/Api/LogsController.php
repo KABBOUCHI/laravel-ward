@@ -10,8 +10,7 @@ class LogsController extends Controller
 {
     public function index()
     {
-
-        Ward::setFile(base64_decode($file = request()->input('file', 'laravel.log')));
+        Ward::setFile($file = request()->input('file', 'laravel.log'));
 
         $logs = cache()->remember($file, 1, function () {
             return Ward::all();

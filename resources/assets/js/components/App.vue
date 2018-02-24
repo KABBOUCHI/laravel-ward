@@ -110,10 +110,18 @@
             }
         },
         mounted() {
-            this.getLogs()
-
             axios.get(`/ward/api/daily-log-files`)
-                .then(response => this.files = response.data)
+                .then(response => {
+                    this.files = response.data
+
+                    if (response.data.length) {
+                        this.current_file = response.data[0];
+                    }
+
+                    this.getLogs()
+
+                })
+
         },
         methods: {
             getLogs() {
@@ -153,8 +161,7 @@
                 document.getElementById('hidden_row' + index).classList.toggle('hidden')
 
             },
-            resetRows()
-            {
+            resetRows() {
                 this.$el.querySelectorAll('.hidden-row').forEach((row) => {
                     if (!row.classList.contains('hidden')) {
                         row.classList.add('hidden')
