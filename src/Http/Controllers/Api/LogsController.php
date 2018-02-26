@@ -51,6 +51,8 @@ class LogsController extends Controller
     public function delete()
     {
         app('files')->delete(Ward::pathToLogFile(request('file')));
+
+        cache()->clear();
     }
 
 }
