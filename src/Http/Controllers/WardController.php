@@ -13,5 +13,4 @@ class WardController extends Controller
     {
         return view('ward::app');
     }
-
 }

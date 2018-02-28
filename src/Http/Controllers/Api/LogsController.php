@@ -2,9 +2,9 @@
 
 namespace KABBOUCHI\Ward\Http\Controllers\Api;
 
+use KABBOUCHI\Ward\Ward;
 use Illuminate\Pagination\LengthAwarePaginator;
 use KABBOUCHI\Ward\Http\Controllers\Controller;
-use KABBOUCHI\Ward\Ward;
 
 class LogsController extends Controller
 {
@@ -25,13 +25,12 @@ class LogsController extends Controller
         $currentPageSearchResults = $collection->slice(($currentPage - 1) * $perPage, $perPage)->all();
 
         return new LengthAwarePaginator($currentPageSearchResults, count($collection), $perPage);
-
     }
 
     public function dailyLogFiles()
     {
         return collect(Ward::getFiles(true))->filter(function ($file) {
-            return strpos($file, "laravel") === 0;
+            return strpos($file, 'laravel') === 0;
         });
     }
 
@@ -54,5 +53,4 @@ class LogsController extends Controller
 
         cache()->clear();
     }
-
 }

@@ -7,7 +7,6 @@ use Illuminate\Support\ServiceProvider;
 
 class WardServiceProvider extends ServiceProvider
 {
-
     /**
      * Bootstrap any application services.
      *
@@ -32,7 +31,7 @@ class WardServiceProvider extends ServiceProvider
             'namespace'  => 'KABBOUCHI\Ward\Http\Controllers',
             'middleware' => config('ward.middleware', 'web'),
         ], function () {
-            $this->loadRoutesFrom(__DIR__ . '/../routes/web.php');
+            $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
         });
     }
 
@@ -43,7 +42,7 @@ class WardServiceProvider extends ServiceProvider
      */
     protected function registerResources()
     {
-        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'ward');
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'ward');
     }
 
     /**
@@ -54,7 +53,7 @@ class WardServiceProvider extends ServiceProvider
     public function defineAssetPublishing()
     {
         $this->publishes([
-            WARD_PATH . '/public' => public_path('vendor/ward'),
+            WARD_PATH.'/public' => public_path('vendor/ward'),
         ], 'ward-assets');
     }
 
@@ -65,8 +64,8 @@ class WardServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        if (!defined('WARD_PATH')) {
-            define('WARD_PATH', realpath(__DIR__ . '/../'));
+        if (! defined('WARD_PATH')) {
+            define('WARD_PATH', realpath(__DIR__.'/../'));
         }
 
         $this->configure();
@@ -81,7 +80,7 @@ class WardServiceProvider extends ServiceProvider
     protected function configure()
     {
         $this->mergeConfigFrom(
-            __DIR__ . '/../config/ward.php', 'ward'
+            __DIR__.'/../config/ward.php', 'ward'
         );
     }
 
@@ -94,7 +93,7 @@ class WardServiceProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__ . '/../config/ward.php' => config_path('ward.php'),
+                __DIR__.'/../config/ward.php' => config_path('ward.php'),
             ], 'ward-config');
         }
     }
