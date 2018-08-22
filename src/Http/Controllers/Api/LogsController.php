@@ -22,7 +22,7 @@ class LogsController extends Controller
 
         $perPage = 6;
 
-        $currentPageSearchResults = $collection->slice(($currentPage - 1) * $perPage, $perPage)->all();
+        $currentPageSearchResults = $collection->slice(($currentPage - 1) * $perPage, $perPage)->values()->toArray();
 
         return new LengthAwarePaginator($currentPageSearchResults, count($collection), $perPage);
     }
