@@ -12,7 +12,7 @@ class LogsController extends Controller
     {
         Ward::setFile($file = request()->input('file', 'laravel.log'));
 
-        $logs = cache()->remember($file, config('ward.cache_duration',0), function () {
+        $logs = cache()->remember($file, config('ward.cache_duration', 0), function () {
             return Ward::all();
         });
 
@@ -20,7 +20,7 @@ class LogsController extends Controller
 
         $collection = collect($logs);
 
-        $perPage = config('ward.logs_per_page',6);
+        $perPage = config('ward.logs_per_page', 6);
 
         $currentPageSearchResults = $collection->slice(($currentPage - 1) * $perPage, $perPage)->values()->toArray();
 
