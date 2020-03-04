@@ -2,8 +2,8 @@
 
 namespace KABBOUCHI\Ward\Http\Controllers;
 
-use KABBOUCHI\Ward\Http\Middleware\Authenticate;
 use Illuminate\Routing\Controller as BaseController;
+use KABBOUCHI\Ward\Http\Middleware\Authenticate;
 
 class Controller extends BaseController
 {
