@@ -42,6 +42,7 @@ class Ward
     ];
     /**
      * Log levels that are used.
+     *
      * @var array
      */
     private static $log_levels = [
@@ -59,7 +60,7 @@ class Ward
     /**
      * Determine if the given request can access the Horizon dashboard.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param  \Illuminate\Http\Request  $request
      * @return bool
      */
     public static function check($request)
@@ -72,7 +73,7 @@ class Ward
     /**
      * Set the callback that should be used to authenticate Horizon users.
      *
-     * @param  \Closure $callback
+     * @param  \Closure  $callback
      * @return static
      */
     public static function auth(Closure $callback)
@@ -83,7 +84,7 @@ class Ward
     }
 
     /**
-     * @param string $file
+     * @param  string  $file
      */
     public static function setFile($file)
     {
@@ -94,8 +95,9 @@ class Ward
     }
 
     /**
-     * @param string $file
+     * @param  string  $file
      * @return string
+     *
      * @throws \Exception
      */
     public static function pathToLogFile($file)
@@ -174,7 +176,7 @@ class Ward
     }
 
     /**
-     * @param bool $basename
+     * @param  bool  $basename
      * @return array
      */
     public static function getFiles($basename = false)

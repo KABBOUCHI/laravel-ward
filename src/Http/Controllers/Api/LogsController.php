@@ -37,6 +37,7 @@ class LogsController extends Controller
     /**
      * @param $log
      * @return \Symfony\Component\HttpFoundation\BinaryFileResponse
+     *
      * @throws \Exception
      */
     public function show($log)
